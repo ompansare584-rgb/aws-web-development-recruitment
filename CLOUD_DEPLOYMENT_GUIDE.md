@@ -1,144 +1,173 @@
-Cloud Volunteer Recruitment — Task 2
+Cloud Deployment Guide — GitHub Pages
 
-Reproducible Website Deployment Guide
+Project: Web Development Recruitment Portfolio
+Platform: GitHub Pages
+Automation: GitHub Actions
+Repository: "aws-web-development-recruitment" (https://github.com/ompansare584-rgb/aws-web-development-recruitment)
 
-Author: Om Suresh Pansare
-Course: B.Tech Computer Science, VIT Pune
-Hosting Platform: GitHub Pages
-Project: Personal Portfolio Website
+1. Overview
 
-1. Project Overview
+This guide explains how to deploy the portfolio website in this repository using GitHub Pages and GitHub Actions.
 
-This project is a personal portfolio website built using HTML5, CSS3, and vanilla JavaScript. It is part of my first-year web development recruitment tasks.
+The deployment workflow automatically publishes the contents of the "portfolio/" directory whenever new changes are pushed to the "main" branch. This provides a repeatable deployment process without requiring a separate hosting server.
 
-The purpose of this guide is to explain how another person can publish the portfolio website using GitHub Pages.
+2. Prerequisites
 
-2. Technologies Used
+Before starting, ensure you have:
 
-- HTML5 — website structure
-- CSS3 — styling, responsive layouts, and animations
-- Vanilla JavaScript — interactive functionality
-- Git — version control
-- GitHub — source-code repository and workflow management
-- GitHub Pages — static website hosting
-- GitHub Actions — automated deployment
+- A GitHub account.
+- Git installed on your computer.
+- Access to the project repository.
+- A portfolio website containing an "index.html" file.
 
-3. Prerequisites
-
-Before starting, ensure that you have:
-
-- A GitHub account
-- Access to the project repository
-- A modern web browser
-- A portfolio folder containing "index.html", CSS, JavaScript, and any required assets
-- Permission to configure GitHub Pages and GitHub Actions for the repository
-
-No paid cloud server or backend database is required for this static website.
-
-4. Repository Structure
+3. Repository Structure
 
 The repository contains the following projects:
 
-- "portfolio/" — personal portfolio website
-- "landing-clone/" — SaaS landing-page clone
-- "todo-app/" — interactive to-do application
-- "README.md" — project overview and instructions
+aws-web-development-recruitment/
+├── portfolio/
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
+├── landing-clone/
+├── todo-app/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+├── CLOUD_DEPLOYMENT_GUIDE.md
+└── README.md
 
-The deployment workflow will publish only the "portfolio/" directory.
+Note: The filenames shown inside "portfolio/" are examples. Adjust the structure if your actual files differ.
 
-5. Deployment Procedure
+Only the "portfolio/" directory is published by the deployment workflow. The other projects remain in the repository and are not included in this deployment.
 
-Step 1: Open the Repository
-
-Visit:
-
-https://github.com/ompansare584-rgb/aws-web-development-recruitment
-
-Confirm that the portfolio source files are available in the "portfolio/" directory.
-
-Step 2: Verify the Entry File
-
-Check that the portfolio directory contains an "index.html" file. Verify that its CSS, JavaScript, images, and other assets use correct file paths.
-
-Step 3: Configure GitHub Pages
+4. Enable GitHub Pages
 
 1. Open the repository on GitHub.
 2. Navigate to Settings → Pages.
-3. Under Build and deployment, select GitHub Actions as the source.
+3. Under Build and deployment, set Source to "GitHub Actions".
+4. Save the setting if prompted.
 
-Step 4: Create a Deployment Workflow
+This allows GitHub Actions to publish the website.
 
-Create the following file in the repository:
+5. Configure the Deployment Workflow
 
-".github/workflows/deploy.yml"
+Create the file ".github/workflows/deploy.yml" in the repository and add the following configuration:
 
-The workflow must check out the repository, copy or select the contents of the "portfolio/" directory as the deployment artifact, and publish that artifact using GitHub Pages.
+name: Deploy Portfolio to GitHub Pages
 
-The uploaded artifact must contain "index.html" at its top level. Refer to the official GitHub Pages documentation for the current workflow syntax and required permissions.
+'on':
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-Official documentation:
+permissions:
+  contents: read
 
-https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-Step 5: Commit the Workflow
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
-Save and commit the workflow file to the "main" branch.
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
 
-Step 6: Monitor Deployment
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-1. Open the repository's Actions tab.
-2. Select the latest deployment workflow run.
-3. Review the logs for errors.
-4. Wait for the workflow to complete successfully.
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
-Step 7: Verify the Website
+      - name: Upload portfolio files
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: portfolio
 
-After a successful deployment, open the website URL shown in the GitHub Pages settings or deployment summary.
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
-Verify that:
+How the workflow works
 
-- The home page loads correctly.
-- CSS styling and images appear correctly.
-- JavaScript interactions work.
-- Navigation links function correctly.
-- The layout works on desktop and mobile screens.
+1. Trigger: Runs when a commit is pushed to "main", or when manually started using "workflow_dispatch".
+2. Checkout: Downloads the repository contents into the GitHub Actions runner.
+3. Configure Pages: Prepares GitHub Pages deployment.
+4. Upload artifact: Packages the contents of "portfolio/" for publishing.
+5. Deploy: Publishes the artifact to GitHub Pages.
 
-6. Setup and Configuration Requirements
+The workflow uses separate permissions for reading repository contents and publishing the Pages deployment.
 
-- The deployment artifact must contain the portfolio website's "index.html" at its root.
-- All referenced CSS, JavaScript, and image files must be included.
-- Relative paths should be checked to ensure assets load correctly.
-- GitHub Actions must have the required permissions to publish the website.
-- The repository's Pages source must be set to GitHub Actions.
+6. Deploy Changes
 
-7. Live Website URL
+Whenever you update your portfolio:
 
-Status: Not deployed yet.
+1. Save your changes.
+2. Commit and push them to the "main" branch.
+3. Open the repository's Actions tab.
+4. Select the latest deployment run.
+5. Confirm that the workflow completes successfully.
 
-The live URL will be added after a successful deployment and verification.
+You can also run the workflow manually by opening the workflow in the Actions tab and selecting Run workflow, if that option is available.
+
+7. Access the Deployed Website
+
+After a successful deployment:
+
+1. Open Settings → Pages.
+2. Find the published website URL or select Visit site.
+3. Open the link in your browser to verify the deployment.
+
+The expected project URL for this repository is:
+
+https://ompansare584-rgb.github.io/aws-web-development-recruitment/
+
+Use the URL displayed in GitHub Pages as the authoritative link.
 
 8. Troubleshooting
 
-Website displays a 404 error: Check that "index.html" exists at the root of the uploaded artifact.
+404 — Page Not Found
 
-CSS or images are missing: Verify asset paths and confirm that the referenced files are included in the portfolio directory.
+Check the following:
 
-Deployment fails: Review the GitHub Actions logs and confirm the Pages settings and workflow permissions.
+- Confirm that the Pages source is set to "GitHub Actions".
+- Verify that "portfolio/index.html" exists in the repository.
+- Ensure the filename is exactly "index.html", not "index.html.html".
+- Confirm that the uploaded Pages artifact contains "index.html" at its top level.
+- Check the latest workflow run and wait for deployment to finish.
+- Open the published URL from Settings → Pages.
 
-Changes do not appear: Confirm that the latest workflow completed successfully and refresh the page.
+Workflow Failure
 
-9. Security Considerations
+- Open Actions and select the failed run.
+- Open the failed job and inspect the step marked with a red cross.
+- Read the error message before changing the workflow configuration.
+- Verify that the workflow file is located at ".github/workflows/deploy.yml".
 
-- Never commit passwords, API keys, or private credentials.
-- Review the files being published because GitHub Pages websites are publicly accessible.
-- Grant workflows only the permissions required for deployment.
+Node.js or Ubuntu Runner Warnings
 
-10. Learning Outcomes
+Deprecation and runner migration warnings do not necessarily mean the deployment failed. Check the actual job status and error messages. Update action versions when appropriate and supported by the relevant action documentation.
 
-This task introduces repository organization, static website hosting, deployment automation, GitHub Actions, basic troubleshooting, and responsible handling of public website files.
+9. Verification Checklist
 
-References
+Before considering the deployment complete, verify that:
 
-- GitHub Pages documentation: https://docs.github.com/en/pages
-- GitHub Actions documentation: https://docs.github.com/en/actions
-- GitHub Pages site creation: https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
+- [ ] GitHub Pages uses GitHub Actions as its source.
+- [ ] The workflow completes successfully.
+- [ ] The Pages artifact contains the portfolio files.
+- [ ] "index.html" is correctly named and located.
+- [ ] The published website opens successfully.
+- [ ] A new commit triggers another deployment.
+- [ ] The live URL is included in the repository README.
+
+10. Conclusion
+
+GitHub Pages and GitHub Actions provide a simple, automated way to host a static website. This deployment demonstrates source control, workflow automation, artifact publishing, deployment verification, and basic troubleshooting.
+
+The same process can be reused whenever the portfolio is updated, making deployment more consistent and easier to reproduce.
