@@ -1,23 +1,11 @@
-
-name: Deploy Portfolio to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     environment:
       name: github-pages
-      url: $ {{ steps.deployment.outputs.page_url }}
-      
+      url: ${{ steps.deployment.outputs.page_url }}
+
     permissions:
       contents: read
       pages: write
