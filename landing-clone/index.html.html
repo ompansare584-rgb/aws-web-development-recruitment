@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaCloud — Scale Your Applications Instantly</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header & Navigation (Flexbox + Pure CSS Hamburger Bonus) -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-cloud"></i> NovaCloud</a>
+
+            <!-- Pure CSS Checkbox Hack for Mobile Menu (Bonus) -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <nav class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#testimonials">Testimonials</a>
+                <div class="nav-cta-mobile">
+                    <a href="#pricing" class="btn secondary-btn">Sign In</a>
+                    <a href="#pricing" class="btn primary-btn">Get Started</a>
+                </div>
+            </nav>
+
+            <div class="nav-cta-desktop">
+                <a href="#" class="sign-in">Sign In</a>
+                <a href="#pricing" class="btn primary-btn">Get Started</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section (Flexbox layout) -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="badge-tag">v2.0 Released</span> Check out what's new <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <h1>Build and scale faster than ever before.</h1>
+            <p>The complete cloud platform for modern developers. Deploy apps instantly, scale automatically, and monitor performance in real-time.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn primary-btn btn-large">Start Free Trial</a>
+                <a href="#features" class="btn secondary-btn btn-large">Explore Features</a>
+            </div>
+            <div class="hero-preview">
+                <div class="mockup-window">
+                    <div class="window-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="window-title">novacloud-deploy.sh</span>
+                    </div>
+                    <div class="window-body">
+                        <code><span class="cmd">$</span> novacloud init --template react-node</code>
+                        <code><span class="success">✓</span> Project scaffolded successfully.</code>
+                        <code><span class="cmd">$</span> novacloud deploy --prod</code>
+                        <code><span class="success">🚀 Live at https://app.novacloud.internal</span></code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section (CSS Grid layout) -->
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2>Designed for high-performance teams</h2>
+                <p>Everything you need to take your application from local development to global scale.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>Instant Deployments</h3>
+                    <p>Push your code to GitHub and watch it go live globally in seconds with our optimized edge network.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Enterprise Security</h3>
+                    <p>Built-in DDoS mitigation, automated SSL certificates, and role-based access control out of the box.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Real-time Analytics</h3>
+                    <p>Monitor traffic spikes, error rates, and resource utilization with clean, intuitive metric dashboards.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section (CSS Grid layout) -->
+        <section id="pricing" class="pricing-section">
+            <div class="section-header">
+                <h2>Simple, predictable pricing</h2>
+                <p>Choose the plan that fits your workflow. Upgrade or downgrade anytime.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Hobby</h3>
+                    <p class="plan-desc">For personal projects and learning experiments.</p>
+                    <div class="price"><span>$0</span>/month</div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Up to 3 personal projects</li>
+                        <li><i class="fa-solid fa-check"></i> Community support</li>
+                        <li><i class="fa-solid fa-check"></i> Standard edge bandwidth</li>
+                    </ul>
+                    <a href="#" class="btn secondary-btn full-width">Start Free</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="popular-tag">Most Popular</div>
+                    <h3>Pro Developer</h3>
+                    <p class="plan-desc">For professional developers building production apps.</p>
+                    <div class="price"><span>$19</span>/month</div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Unlimited team projects</li>
+                        <li><i class="fa-solid fa-check"></i> Priority 24/7 support</li>
+                        <li><i class="fa-solid fa-check"></i> Advanced analytics & logs</li>
+                        <li><i class="fa-solid fa-check"></i> Custom domain mapping</li>
+                    </ul>
+                    <a href="#" class="btn primary-btn full-width">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <p class="plan-desc">For scaling organizations with custom demands.</p>
+                    <div class="price"><span>$99</span>/month</div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Dedicated infrastructure</li>
+                        <li><i class="fa-solid fa-check"></i> Custom SLA guarantees</li>
+                        <li><i class="fa-solid fa-check"></i> Advanced security auditing</li>
+                    </ul>
+                    <a href="#" class="btn secondary-btn full-width">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Flexbox layout) -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#" class="logo"><i class="fa-solid fa-cloud"></i> NovaCloud</a>
+                <p>&copy; 2026 NovaCloud Inc. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Product</h4>
+                    <a href="#">Features</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Documentation</a>
+                </div>
+                <div class="link-column">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

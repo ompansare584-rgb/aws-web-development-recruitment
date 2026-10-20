@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om Pansare | Computer Science Student & Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for clean icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="#" class="logo">Om.dev</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" aria-label="Toggle light and dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="menu-btn" aria-label="Open mobile menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <span class="greeting">Hi, my name is</span>
+                <h1>Om Suresh Pansare.</h1>
+                <h2>I build things for the web.</h2>
+                <p>I am a first-year B.Tech Computer Science student passionate about crafting accessible, high-performance digital experiences.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn">Check My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Let's Connect</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <h2 class="section-title">01. About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hello! I'm Om, a developer and computer science student based in Pune. I enjoy translating logic, algorithms, and creative concepts into clean, user-friendly applications.</p>
+                    <p>When I'm not writing code or debugging scripts, you'll find me exploring software engineering fundamentals, participating in tech events, or building web tools.</p>
+                </div>
+                <div class="about-card">
+                    <div class="card-glow"></div>
+                    <div class="stat-box">
+                        <h3>B.Tech CSE</h3>
+                        <p>First-Year Student</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2 class="section-title">02. My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> HTML5 & Semantic Markup</li>
+                        <li><i class="fa-solid fa-check"></i> CSS3 / Flexbox / Grid</li>
+                        <li><i class="fa-solid fa-check"></i> JavaScript (ES6+)</li>
+                        <li><i class="fa-solid fa-check"></i> Responsive Web Design</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Languages</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> C / C++</li>
+                        <li><i class="fa-solid fa-check"></i> Git & GitHub</li>
+                        <li><i class="fa-solid fa-check"></i> VS Code</li>
+                        <li><i class="fa-solid fa-check"></i> Python Basics</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2 class="section-title">03. Featured Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-header">
+                        <i class="fa-regular fa-folder-closed folder-icon"></i>
+                        <div class="project-links">
+                            <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3>Interactive To-Do Web App</h3>
+                    <p>A vanilla JavaScript task manager featuring dynamic filtering, data persistence via localStorage, and a clean interface.</p>
+                    <div class="project-tech">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="project-header">
+                        <i class="fa-regular fa-folder-closed folder-icon"></i>
+                        <div class="project-links">
+                            <a href="#" aria-label="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                            <a href="#" aria-label="Live Demo"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <h3>SaaS Landing Page Clone</h3>
+                    <p>A pixel-accurate layout replica featuring a responsive mobile navigation bar, CSS Grid pricing layout, and smooth animations.</p>
+                    <div class="project-tech">
+                        <span>HTML5</span>
+                        <span>CSS Grid</span>
+                        <span>Flexbox</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="section-title">04. Get In Touch</h2>
+            <div class="contact-container">
+                <p>I am currently open to new opportunities, collaborations, or tech discussions. Whether you have a question or just want to say hi, my inbox is always open!</p>
+                <a href="mailto:om@example.com" class="btn primary-btn">Say Hello</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Designed & Built by Om Suresh Pansare</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
